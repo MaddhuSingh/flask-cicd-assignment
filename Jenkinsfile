@@ -3,28 +3,21 @@ pipeline {
 
     stages {
 
-        stage('Setup Virtual Env') {
-            steps {
-                sh 'python3 -m ensurepip --upgrade || true'
-                sh 'python3 -m venv venv'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
-                sh 'venv/bin/pip install -r requirements.txt'
+                sh 'pip3 install --break-system-packages -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'venv/bin/pytest'
+                sh 'pytest'
             }
         }
 
         stage('Run App') {
             steps {
-                sh 'venv/bin/python app.py'
+                sh 'python3 app.py'
             }
         }
     }
