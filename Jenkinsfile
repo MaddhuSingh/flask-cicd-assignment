@@ -5,19 +5,20 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'python3 -m pip install --upgrade pip'
+                sh 'python3 -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'pytest'
+                sh 'python3 -m pytest'
             }
         }
 
         stage('Run App') {
             steps {
-                sh 'python app.py'
+                sh 'python3 app.py'
             }
         }
     }
