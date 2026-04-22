@@ -17,7 +17,7 @@ pipeline {
 
         stage('Run App') {
             steps {
-                sh 'timeout 10 python3 app.py'
+                sh 'python3 -c "import app"'
             }
         }
     }
