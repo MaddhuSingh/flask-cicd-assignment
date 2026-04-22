@@ -5,6 +5,7 @@ pipeline {
 
         stage('Setup Virtual Env') {
             steps {
+                sh 'python3 -m ensurepip --upgrade || true'
                 sh 'python3 -m venv venv'
             }
         }
