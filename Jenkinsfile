@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/MaddhuSingh/flask-cicd-assignment.git'
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
